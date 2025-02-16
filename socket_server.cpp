@@ -27,10 +27,13 @@ void* handle_client(void* arg) {
         memset(buffer, 0, BUFFER_SIZE);
         int bytes_received = recv(client_socket, buffer, sizeof(buffer), 0);
         if (bytes_received <= 0 ) {
-            cout << "Client disconnected" << endl;
             break;
         }
-        std::cout << "Received: " << buffer << std::endl;
+        std::cout << "Received: " << buffer;
+
+        if ( strncasecmp(buffer, "exit", 4) == 0 ) {
+            break;
+        }
 
         string response = "Echo: " + string(buffer);
         send(client_socket, response.c_str(), response.length(), 0);
