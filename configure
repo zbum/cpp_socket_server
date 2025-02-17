@@ -2920,6 +2920,8 @@ fi
 
 
 
+# C++ 컴파일러 확인
+
 
 
 
@@ -3764,7 +3766,10 @@ else
 fi
 
 
+
+# Makefile 추가
 ac_config_files="$ac_config_files Makefile"
+
 
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
